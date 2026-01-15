@@ -1,0 +1,56 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Estilos adicionales que Tailwind no cubre directamente */
+:root {
+    --border-blue: #1e3a5f;
+    --bg-dark: #0a0e1a;
+    --primary: #4caf50;
+}
+
+/* Global app container tweaks */
+html, body, #root { height: 100%; }
+body { background: var(--bg-dark); -webkit-font-smoothing: antialiased; }
+
+/* Bubble & photo styles used in components */
+.bubble {
+    padding: 10px 14px;
+    border-radius: 18px;
+    font-size: 15px;
+    line-height: 1.4;
+}
+
+/* Photo pixelation helpers */
+.photo-image {
+    max-width: 250px;
+    max-height: 320px;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 14px;
+    border: 2px solid var(--border-blue);
+    display: block;
+}
+
+/* Pixel look using image-rendering */
+.photo-image.pixelated {
+    filter: brightness(0.9) contrast(1.1);
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+}
+
+/* unlocked */
+.photo-image.unlocked {
+    border-color: var(--primary);
+    filter: none;
+}
+
+/* scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 10px; }
+
+/* Upload progress styles */
+.upload-progress { bottom: 72px; } /* sits above footer */
+.upload-progress .bg-primary { background: var(--primary); }
